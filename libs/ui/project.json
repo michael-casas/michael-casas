@@ -42,6 +42,14 @@
         }
       }
     },
+    "load-stories": {
+      "executor": "@nx/react-native:storybook",
+      "options": {
+        "searchDir": ["libs/ui/src"],
+        "outputFile": "./libs/ui/.storybook/story-loader.ts",
+        "pattern": "**/*.stories.@(js|jsx|ts|tsx|mdx)"
+      }
+    },
     "storybook": {
       "executor": "@nx/storybook:storybook",
       "options": {
@@ -52,6 +60,14 @@
         "ci": {
           "quiet": true
         }
+      }
+    },
+    "storybook:native": {
+      "executor": "@nx/expo:start",
+      "dependsOn": ["load-stories"],
+      "options": {
+        "port": 8081,
+        "clear": true
       }
     },
     "build-storybook": {

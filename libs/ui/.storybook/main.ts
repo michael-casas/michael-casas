@@ -3,11 +3,6 @@ import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.stories.@(js|jsx|ts|tsx|mdx)"],
-  addons: [
-    "@storybook/addon-essentials",
-    "@storybook/addon-react-native-web",
-    "@nx/react/plugins/storybook",
-  ],
   staticDirs: ["../public"],
   core: {
     builder: "@storybook/builder-vite",
@@ -20,6 +15,18 @@ const config: StorybookConfig = {
       },
     },
   },
+  addons: [
+    "@nx/react/plugins/storybook",
+    "@storybook/addon-essentials",
+    {
+      name: "@storybook/addon-react-native-web",
+      options: {
+        babelPlugins: ["nativewind/babel"],
+        modulesToTranspile: [],
+        modulesToAlias: [],
+      },
+    },
+  ],
   async viteFinal(config) {
     return mergeConfig(config, {
       optimizeDeps: {

@@ -22,5 +22,12 @@
     "**/*.stories.jsx",
     "**/*.stories.tsx"
   ],
-  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", ".storybook/.babelrc.js"]
+  "include": [
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    ".storybook/.babelrc.js",
+    ".babelrc.js"
+  ]
 }
