@@ -1,3 +1,7 @@
 {
-  "singleQuote": false
+  "singleQuote": false,
+  "jsxSingleQuote": false,
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "bracketSameLine": false
 }

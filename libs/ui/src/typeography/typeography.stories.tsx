@@ -1,17 +1,18 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { View, Text } from "../lib/components";
+import type { Meta } from "@storybook/react";
+import { TypographyStory } from "./story";
 
 // TODO: Design The Colors Component Demo here...
-const meta: Meta<typeof View> = {
-  component: View,
+const meta: Meta<typeof TypographyStory> = {
+  component: TypographyStory,
   title: "Design Tokens/Tier 1: Definitions",
+  parameters: {
+    controls: {
+      disabled: true,
+    },
+  },
 };
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Typography: Story = ({ ...args }) => (
-  <View tw="text-center bg-slate-400">
-    <Text tw="text-4xl">H1</Text>
-  </View>
-);
+export const Typography = {
+  args: {},
+};
