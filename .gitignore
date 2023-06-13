@@ -129,3 +129,6 @@ yarn-error.log
 apps/mobi-e2e/artifacts
 apps/apps/mobi-e2e/artifacts
 apps/ui-native-e2e/artifacts
+
+# Next.js
+.next

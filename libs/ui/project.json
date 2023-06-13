@@ -66,8 +66,16 @@
       "executor": "@nx/expo:start",
       "dependsOn": ["load-stories"],
       "options": {
-        "port": 8081,
-        "clear": true
+        "port": 8081
+      },
+      "configurations": {
+        "development": {
+          "dev": true,
+          "devClient": true
+        },
+        "go": {
+          "clear": true
+        }
       }
     },
     "build-storybook": {
@@ -80,6 +88,32 @@
       "configurations": {
         "ci": {
           "quiet": true
+        }
+      }
+    },
+    "build-android": {
+      "executor": "@nx/expo:build",
+      "options": {
+        "platform": "android",
+        "output": "dist/build.apk"
+      },
+      "configurations": {
+        "development": {
+          "local": true,
+          "profile": "development"
+        }
+      }
+    },
+    "build-ios": {
+      "executor": "@nx/expo:build",
+      "options": {
+        "output": "dist/build.tar.gz",
+        "platform": "ios"
+      },
+      "configurations": {
+        "development": {
+          "local": true,
+          "profile": "development"
         }
       }
     },
