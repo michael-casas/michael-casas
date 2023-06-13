@@ -1,18 +1,13 @@
-import type { StorybookConfig } from "@storybook/react-vite";
+import type { StorybookConfig } from "@storybook/nextjs";
 import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.stories.@(js|jsx|ts|tsx|mdx)"],
-  staticDirs: ["../public"],
-  core: {
-    builder: "@storybook/builder-vite",
-  },
+  staticDirs: ["../assets", "../public"],
   framework: {
-    name: "@storybook/react-vite",
+    name: "@storybook/nextjs",
     options: {
-      builder: {
-        viteConfigPath: "libs/ui/vite.config.ts",
-      },
+      nextConfigPath: "libs/ui/next.config.js",
     },
   },
   addons: [
@@ -22,18 +17,27 @@ const config: StorybookConfig = {
       name: "@storybook/addon-react-native-web",
       options: {
         babelPlugins: ["nativewind/babel"],
-        modulesToTranspile: [],
+        modulesToTranspile: ["react-native, react-native-vector-icons"],
         modulesToAlias: [],
       },
     },
   ],
-  async viteFinal(config) {
-    return mergeConfig(config, {
-      optimizeDeps: {
-        include: ["nativewind"],
-      },
-    });
-  },
+  // async viteFinal(config) {
+  //   return mergeConfig(config, {
+  //     optimizeDeps: {
+  //       include: ["nativewind", "react-native", "react-native-vector-icons"],
+  //     },
+  //     build: {
+  //       commonjsOptions: {
+  //         include: [
+  //           /react-native/,
+  //           /react-native-vector-icons/,
+  //           /node_modules/,
+  //         ],
+  //       },
+  //     },
+  //   });
+  // },
 };
 
 export default config;

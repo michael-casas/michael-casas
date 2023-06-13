@@ -1,7 +1,8 @@
 {
   "expo": {
     "name": "NOX UI",
-    "slug": "nox-ui",
+    "slug": "ui",
+    "scheme": "ui",
     "version": "0.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,30 +14,28 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "jsEngine": "jsc",
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nox-technologies.ui"
     },
     "android": {
-      "jsEngine": "jsc",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.nox_technologies.ui"
     },
     "web": {
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
-    "plugins": [
-      [
-        "@config-plugins/detox",
-        {
-          "skipProguard": false,
-          "subdomains": ["10.0.2.2", "localhost"]
-        }
-      ]
-    ]
+    "extra": {
+      "eas": {
+        "projectId": "8b12c7ed-1bd1-41dc-a097-f631f07a5b1a"
+      }
+    }
   }
 }
