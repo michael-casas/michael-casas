@@ -17,7 +17,7 @@ export const CanvasStory = (props: CanvasStoryProps) => {
 
   return (
     <View className="flex-row justify-between p-5 drop-shadow-sm bg-slate-100">
-      <H3 className="">NOX</H3>
+      <H3 className="bg-orange-300 text-center md:text-4xl">NOX</H3>
       <Menu className="md:hidden" size={32} name="menu" color={"black"} />
       <View className="hidden flex-row md:flex">
         <H5 className="p-5 hover:text-purple-400 hover:cursor-pointer">

@@ -11,7 +11,9 @@
     "expo-splash-screen": "*",
     "nativewind": "*",
     "react-native": "*",
+    "react-native-reanimated": "*",
     "react-native-safe-area-context": "*",
+    "react-native-skia": "*",
     "react-native-web": "*",
     "@expo/metro-config": "*",
     "@react-native-async-storage/async-storage": "*",
@@ -35,7 +37,9 @@
     "vite-tsconfig-paths": "*",
     "vite-plugin-dts": "*",
     "@storybook/manager-api": "*",
-    "@storybook/theming": "*"
+    "@storybook/theming": "*",
+    "@storybook/nextjs": "*",
+    "@rollup/plugin-commonjs": "*"
   },
   "devDependencies": {
     "@babel/preset-env": "*",

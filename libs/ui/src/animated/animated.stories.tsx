@@ -1,10 +1,10 @@
 import type { Meta } from "@storybook/react";
-import { CanvasStory } from "./story";
+import { AnimatedStory } from "./story";
 
 // TODO: Design The Colors Component Demo here...
-const meta: Meta<typeof CanvasStory> = {
-  component: CanvasStory,
-  title: "Canvas",
+const meta: Meta<typeof AnimatedStory> = {
+  component: AnimatedStory,
+  title: "Animated",
   parameters: {
     controls: {
       disabled: true,
