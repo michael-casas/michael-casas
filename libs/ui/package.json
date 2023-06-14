@@ -39,7 +39,12 @@
     "@storybook/manager-api": "*",
     "@storybook/theming": "*",
     "@storybook/nextjs": "*",
-    "@rollup/plugin-commonjs": "*"
+    "@rollup/plugin-commonjs": "*",
+    "node-polyfill-webpack-plugin": "*",
+    "webpack": "*",
+    "react": "*",
+    "@shopify/react-native-skia": "*",
+    "canvaskit-wasm": "*"
   },
   "devDependencies": {
     "@babel/preset-env": "*",
