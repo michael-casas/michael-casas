@@ -22,7 +22,7 @@ export const AnimatedStory = () => {
       ref={ref}
       onTouch={onTouch}
     >
-      <Circle r={128} cx={128} cy={128} color={"red"} />
+      <Circle r={128} cx={128} cy={128} color={"blue"} />
     </Canvas>
   );
 };
