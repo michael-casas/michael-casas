@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@nox-technologies/shared": ["libs/shared/src/index.ts"],
-      "@nox-technologies/ui": ["libs/ui/src/index.ts"]
+      "@nox-technologies/ui": ["libs/ui/src/index.ts"],
+      "@nox-technologies/ui/*": ["libs/ui/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

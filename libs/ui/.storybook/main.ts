@@ -1,5 +1,7 @@
 import type { StorybookConfig } from "@storybook/nextjs";
-import { mergeConfig } from "vite";
+import fs from "node:fs";
+import NodePolyfillPlugin from "node-polyfill-webpack-plugin";
+import webpack from "webpack";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.stories.@(js|jsx|ts|tsx|mdx)"],
@@ -22,26 +24,64 @@ const config: StorybookConfig = {
       },
     },
   ],
-  // async viteFinal(config) {
-  //   return mergeConfig(config, {
-  //     optimizeDeps: {
-  //       include: ["nativewind", "react-native", "react-native-vector-icons"],
-  //     },
-  //     build: {
-  //       commonjsOptions: {
-  //         include: [
-  //           /react-native/,
-  //           /react-native-vector-icons/,
-  //           /node_modules/,
-  //         ],
-  //       },
-  //     },
-  //   });
-  // },
+  previewHead: (head) => `
+    ${head}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/canvaskit-wasm/0.38.2/canvaskit.js" integrity="sha512-nxNoFynWFNZm8ox2kHj2aS/ieYfLNh8CbtDj0kIYwpjPZZj6XTWQ5i8jteTwHqBp+8GAlP/+p0i3zmMVTnrLuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script>
+        (async function () {
+          window.CanvasKit = await CanvasKitInit();
+        })();
+      </script>
+  `,
+  webpackFinal(config, {}) {
+    // Possible react-native-skia fix
+    config.plugins?.push(
+      new (class CopySkiaPlugin {
+        apply(compiler: webpack.Compiler) {
+          compiler.hooks.thisCompilation.tap("AddSkiaPlugin", (compilation) => {
+            compilation.hooks.processAssets.tapPromise(
+              {
+                name: "copy-skia",
+                stage:
+                  compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL,
+              },
+              async () => {
+                const src = require.resolve(
+                  "canvaskit-wasm/bin/full/canvaskit.wasm"
+                );
+                if (compilation.getAsset(src)) {
+                  return;
+                }
+
+                compilation.emitAsset(
+                  "/canvaskit.wasm",
+                  new webpack.sources.RawSource(await fs.promises.readFile(src))
+                );
+              }
+            );
+          });
+        }
+      })(),
+      new NodePolyfillPlugin()
+    );
+    config.resolve = {
+      ...config.resolve,
+      fallback: {
+        fs: false,
+        path: false,
+      },
+      extensions: [
+        ".web.js",
+        ".web.ts",
+        ".web.tsx",
+        ".js",
+        ".ts",
+        ".tsx",
+        "...",
+      ],
+    };
+    return config;
+  },
 };
 
 export default config;
-
-// To customize your Vite configuration you can use the viteFinal field.
-// Check https://storybook.js.org/docs/react/builders/vite#configuration
-// and https://nx.dev/packages/storybook/documents/custom-builder-configs

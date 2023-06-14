@@ -17,6 +17,7 @@
     "@expo/next-adapter": "^5.0.2",
     "@expo/vector-icons": "^13.0.0",
     "@shopify/react-native-skia": "^0.1.193",
+    "canvaskit-wasm": "^0.38.2",
     "expo": "48.0.16",
     "expo-dev-client": "^2.2.1",
     "expo-splash-screen": "~0.18.2",
@@ -26,6 +27,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.71.8",
+    "react-native-reanimated": "^3.3.0",
+    "react-native-skia": "^0.0.1",
     "react-native-svg": "13.9.0",
     "react-native-svg-transformer": "1.0.0",
     "react-native-vector-icons": "^9.2.0",
@@ -115,6 +118,7 @@
     "metro-react-native-babel-preset": "0.74.1",
     "metro-react-native-babel-transformer": "0.74.1",
     "metro-resolver": "0.74.1",
+    "node-polyfill-webpack-plugin": "^2.0.1",
     "nx": "16.3.2",
     "nx-cloud": "latest",
     "postcss": "^8.4.24",
@@ -129,6 +133,7 @@
     "vite-plugin-dts": "~1.7.1",
     "vite-plugin-eslint": "^1.8.1",
     "vite-tsconfig-paths": "^4.0.2",
-    "vitest": "^0.31.0"
+    "vitest": "^0.31.0",
+    "webpack": "^5.86.0"
   }
 }

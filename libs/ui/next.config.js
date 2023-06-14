@@ -9,14 +9,14 @@ const nextConfig = {
   // once that gets fixed, set this back to true
   reactStrictMode: false,
   transpilePackages: [
+    "nativewind",
     "react-native",
     "react-native-web",
-    "solito",
-    "moti",
-    "app",
-    "react-native-reanimated",
-    "nativewind",
     "react-native-gesture-handler",
+    "react-native-reanimated",
+    "solito",
+    "@shopify/react-native-skia",
+    "canvaskit-wasm",
   ],
 };
 
