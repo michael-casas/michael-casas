@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "eas-install": {
+      "implementation": "./src/executors/eas-install/executor",
+      "schema": "./src/executors/eas-install/schema.json",
+      "description": "eas-install executor"
+    }
+  }
+}

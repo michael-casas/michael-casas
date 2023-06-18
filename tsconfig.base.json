@@ -17,7 +17,8 @@
     "paths": {
       "@nox-technologies/shared": ["libs/shared/src/index.ts"],
       "@nox-technologies/ui": ["libs/ui/src/index.ts"],
-      "@nox-technologies/ui/*": ["libs/ui/src/*"]
+      "@nox-technologies/ui/*": ["libs/ui/src/*"],
+      "@nox-technologies/wizard": ["libs/wizard/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

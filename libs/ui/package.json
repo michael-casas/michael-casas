@@ -8,6 +8,7 @@
     "@expo/next-adapter": "*",
     "expo": "*",
     "expo-dev-client": "*",
+    "expo-font": "*",
     "expo-splash-screen": "*",
     "nativewind": "*",
     "react-native": "*",
@@ -44,7 +45,8 @@
     "webpack": "*",
     "react": "*",
     "@shopify/react-native-skia": "*",
-    "canvaskit-wasm": "*"
+    "canvaskit-wasm": "*",
+    "@testing-library/react-native": "*"
   },
   "devDependencies": {
     "@babel/preset-env": "*",
