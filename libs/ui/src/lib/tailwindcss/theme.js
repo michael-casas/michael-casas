@@ -2,8 +2,6 @@
 const theme = {
   fontFamily: {
     primary: ["WorkSans"],
-    secondary: ["Palanquin"],
-    paragraph: ["HindSiliguri"],
   },
   extend: {
     spacing: {

@@ -1,11 +1,17 @@
 import type { StorybookConfig } from "@storybook/nextjs";
 import fs from "node:fs";
+import path from "node:path";
 import NodePolyfillPlugin from "node-polyfill-webpack-plugin";
 import webpack from "webpack";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.stories.@(js|jsx|ts|tsx|mdx)"],
-  staticDirs: ["../assets", "../public"],
+  staticDirs: [
+    {
+      from: "../assets",
+      to: "/assets",
+    },
+  ],
   framework: {
     name: "@storybook/nextjs",
     options: {
