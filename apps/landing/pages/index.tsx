@@ -1,3 +1,15 @@
-import { Home } from "@nox-technologies/ui/pages/home";
+import { Home } from "@nox-technologies/ui";
 
 export default Home;
+
+// import { Text, View } from "react-native";
+
+// const Home = () => {
+//   return (
+//     <View>
+//       <Text>This is Home</Text>
+//     </View>
+//   );
+// };
+
+// export default Home;

@@ -1,6 +1,8 @@
 import "raf/polyfill";
 import "setimmediate";
 
+import "../global.css";
+
 import type { SolitoAppProps as AppProps } from "solito";
 import Head from "next/head";
 

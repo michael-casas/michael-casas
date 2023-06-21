@@ -14,9 +14,6 @@ const nextConfig = {
     svgr: false,
   },
   reactStrictMode: false,
-  experimental: {
-    forceSwcTransforms: true,
-  },
   transpilePackages: [
     "@expo/vector-icons",
     "@nox-technologies/ui",
@@ -29,30 +26,30 @@ const nextConfig = {
     "react-native-reanimated",
     "react-native-gesture-handler",
   ],
-  webpack: (config, {}) => {
-    config.module.rules.push({
-      test: /\.(woff|woff2|eot|ttf|otf)$/,
-      use: {
-        loader: "file-loader",
-        options: {
-          publicPath: "/_next",
-          name: "static/fonts/[name].[hash].[ext]",
-        },
-      },
-    });
-    config.resolve.alias = {
-      ...(config.resolve.alias || {}),
-      "react-native$": "react-native-web",
-      "@expo/vector-icons": "react-native-vector-icons",
-    };
-    config.resolve.extensions = [
-      ".web.js",
-      ".web.ts",
-      ".web.tsx",
-      ...config.resolve.extensions,
-    ];
-    return config;
-  },
+  // webpack: (config, {}) => {
+  //   config.module.rules.push({
+  //     test: /\.(woff|woff2|eot|ttf|otf)$/,
+  //     use: {
+  //       loader: "file-loader",
+  //       options: {
+  //         publicPath: "/_next",
+  //         name: "static/fonts/[name].[hash].[ext]",
+  //       },
+  //     },
+  //   });
+  //   config.resolve.alias = {
+  //     ...(config.resolve.alias || {}),
+  //     "react-native$": "react-native-web",
+  //     "@expo/vector-icons": "react-native-vector-icons",
+  //   };
+  //   config.resolve.extensions = [
+  //     ".web.js",
+  //     ".web.ts",
+  //     ".web.tsx",
+  //     ...config.resolve.extensions,
+  //   ];
+  //   return config;
+  // },
 };
 
 const plugins = [
