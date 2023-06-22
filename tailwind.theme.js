@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config['theme']} */
 const theme = {
   fontFamily: {
-    primary: ["WorkSans"],
+    primary: ["WorkSans", "var(--font-primary)"],
   },
   extend: {
     spacing: {
