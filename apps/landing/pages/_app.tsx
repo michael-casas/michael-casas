@@ -5,6 +5,7 @@ import "../global.css";
 
 import type { SolitoAppProps as AppProps } from "solito";
 import Head from "next/head";
+import { workSans } from "../font.config";
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -12,7 +13,7 @@ function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>NOX Technologies</title>
       </Head>
-      <main className="app">
+      <main className={`${workSans.variable}`}>
         <Component {...pageProps} />
       </main>
     </>
