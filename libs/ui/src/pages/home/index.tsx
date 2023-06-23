@@ -10,8 +10,8 @@ interface HomeProps {
 
 // const Menu = styled(Feather);
 
+// TODO: Building a Base storybook
 export const Home = (props: HomeProps) => {
-  // const { width } = useWindowDimensions();
   const theme = useColorScheme();
 
   return (
