@@ -10,7 +10,7 @@ interface HomeProps {
 
 // const Menu = styled(Feather);
 
-// TODO: Building a Base storybook
+// TODO: Build out atomics and first Lead Magnet
 export const Home = (props: HomeProps) => {
   const theme = useColorScheme();
 
