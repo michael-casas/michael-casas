@@ -46,7 +46,8 @@
     "react": "*",
     "@shopify/react-native-skia": "*",
     "canvaskit-wasm": "*",
-    "@testing-library/react-native": "*"
+    "@testing-library/react-native": "*",
+    "@storybook/addon-actions": "*"
   },
   "devDependencies": {
     "@babel/preset-env": "*",

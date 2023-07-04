@@ -14,9 +14,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*", "assets/**"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.nox-technologies.ui"
