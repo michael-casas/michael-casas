@@ -38,9 +38,28 @@ const config: StorybookConfig = {
           window.CanvasKit = await CanvasKitInit();
         })();
       </script>
+      <style type="text/css">
+        @font-face {
+          font-family: "WorkSans";
+          src: url("/assets/fonts/WorkSans.ttf") format("truetype");
+        }
+      </style>
   `,
   webpackFinal(config, {}) {
     // Possible react-native-skia fix
+    config.module?.rules?.push({
+      test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+      type: "asset/resource",
+      use: [
+        {
+          loader: "file-loader",
+          options: {
+            name: "[name].[ext]",
+          },
+        },
+      ],
+      include: path.resolve(__dirname, "../"),
+    });
     config.plugins?.push(
       new (class CopySkiaPlugin {
         apply(compiler: webpack.Compiler) {

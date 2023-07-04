@@ -4,7 +4,7 @@ import { AnimatedStory } from "./story";
 // TODO: Design The Colors Component Demo here...
 const meta: Meta<typeof AnimatedStory> = {
   component: AnimatedStory,
-  title: "Animated",
+  title: "Design Tokens/Tier 1: Definitions",
   parameters: {
     controls: {
       disabled: true,
@@ -14,6 +14,6 @@ const meta: Meta<typeof AnimatedStory> = {
 };
 export default meta;
 
-export const Freehand = {
+export const Animated = {
   args: {},
 };

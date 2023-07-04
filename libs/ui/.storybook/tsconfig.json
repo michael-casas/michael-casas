@@ -25,5 +25,5 @@
     "*.js",
     "preview.tsx",
     "index.tsx"
-  ]
+, "requires.tsx"  ]
 }

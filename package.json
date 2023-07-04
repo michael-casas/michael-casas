@@ -71,6 +71,7 @@
     "@react-native-community/cli-platform-android": "10.2.0",
     "@react-native-community/cli-platform-ios": "10.2.1",
     "@rollup/plugin-commonjs": "^25.0.1",
+    "@storybook/addon-actions": "^7.0.25",
     "@storybook/addon-essentials": "7.0.20",
     "@storybook/addon-ondevice-actions": "^6.5.3",
     "@storybook/addon-ondevice-backgrounds": "^6.5.3",

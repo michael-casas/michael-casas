@@ -3,14 +3,13 @@ import { Linking, Text as NativeText, Platform } from "react-native";
 import { StyledProps, styled } from "nativewind";
 import { Text } from "../../lib/components";
 
-export const H1 = styled(NativeText, "text-5xl");
-export const H2 = styled(NativeText, "text-4xl");
-export const H3 = styled(NativeText, "text-3xl");
-export const H4 = styled(NativeText, "text-2xl");
-export const H5 = styled(NativeText, "text-xl");
-export const H6 = styled(NativeText, "text-lg");
-
-export const P = styled(NativeText, "text-base");
+export const H1 = styled(NativeText, "font-primary text-5xl");
+export const H2 = styled(NativeText, "font-primary text-4xl");
+export const H3 = styled(NativeText, "font-primary text-3xl");
+export const H4 = styled(NativeText, "font-primary text-2xl");
+export const H5 = styled(NativeText, "font-primary text-xl");
+export const H6 = styled(NativeText, "font-primary text-lg");
+export const P = styled(NativeText, "font-primary text-base");
 
 export interface AnchorProps extends ComponentProps<typeof Text> {
   href?: string;
