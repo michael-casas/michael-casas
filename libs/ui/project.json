@@ -78,18 +78,6 @@
         }
       }
     },
-    "start:native": {
-      "executor": "@nx/expo:run",
-      "dependsOn": ["load-stories"],
-      "configurations": {
-        "android": {
-          "platform": "android"
-        },
-        "ios": {
-          "platform": "ios"
-        }
-      }
-    },
     "build-storybook": {
       "executor": "@nx/storybook:build",
       "outputs": ["{options.outputDir}"],

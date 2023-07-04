@@ -6,15 +6,17 @@
   "dependencies": {
     "@expo/vector-icons": "*",
     "@expo/next-adapter": "*",
-    "expo": "*",
+    "expo": "~48.0.18",
     "expo-dev-client": "*",
     "expo-font": "*",
-    "expo-splash-screen": "*",
+    "expo-splash-screen": "~0.18.2",
     "nativewind": "*",
-    "react-native": "*",
+    "react-native": "0.71.8",
     "react-native-reanimated": "*",
     "react-native-safe-area-context": "*",
     "react-native-skia": "*",
+    "react-native-svg": "*",
+    "react-native-svg-transformer": "*",
     "react-native-web": "*",
     "@expo/metro-config": "*",
     "@react-native-async-storage/async-storage": "*",
@@ -43,11 +45,13 @@
     "@rollup/plugin-commonjs": "*",
     "node-polyfill-webpack-plugin": "*",
     "webpack": "*",
-    "react": "*",
+    "react": "18.2.0",
     "@shopify/react-native-skia": "*",
     "canvaskit-wasm": "*",
     "@testing-library/react-native": "*",
-    "@storybook/addon-actions": "*"
+    "@storybook/addon-actions": "*",
+    "expo-status-bar": "~1.4.4",
+    "@babel/core": "*"
   },
   "devDependencies": {
     "@babel/preset-env": "*",
@@ -68,12 +72,18 @@
     "tailwindcss": "*",
     "vite": "*",
     "vite-tsconfig-paths": "*",
-    "vite-plugin-dts": "*"
+    "vite-plugin-dts": "*",
+    "@babel/core": "^7.20.0"
   },
   "exports": {
     ".": {
       "import": "./index.mjs",
       "require": "./index.js"
     }
+  },
+  "scripts": {
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   }
 }
