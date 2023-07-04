@@ -8,7 +8,7 @@ interface HomeProps {
   theme: "light" | "dark";
 }
 
-// const Menu = styled(Feather);
+const Menu = styled(Feather);
 
 // TODO: Build out atomics and first Lead Magnet
 export const Home = (props: HomeProps) => {
@@ -20,7 +20,7 @@ export const Home = (props: HomeProps) => {
       {/**
        * TODO Need to implement a fix for Icon Fonts for storybook
        */}
-      {/* <Menu className="md:hidden" size={32} name="menu" color={"black"} /> */}
+      <Menu className="md:hidden" size={32} name="menu" color={"black"} />
       <View className="hidden flex-row md:flex">
         <H5 className="p-5 font-primary hover:text-purple-400 hover:cursor-pointer">
           About
