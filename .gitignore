@@ -137,3 +137,8 @@ apps/ui-native-e2e/artifacts
 
 # Next.js
 .next
+
+.env*
+.flaskenv*
+!.env.project
+!.env.vault

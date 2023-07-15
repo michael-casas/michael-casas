@@ -24,12 +24,24 @@ const config: StorybookConfig = {
     {
       name: "@storybook/addon-react-native-web",
       options: {
-        babelPlugins: ["nativewind/babel"],
-        modulesToTranspile: ["react-native, react-native-vector-icons"],
+        modulesToTranspile: [
+          "expo",
+          "react-native",
+          "react-native-vector-icons",
+          "solito",
+        ],
         modulesToAlias: [],
       },
     },
   ],
+  // docs: {
+  //   autodocs: true,
+  //   defaultName: "Documentation",
+  // },
+  env: (config, options) => ({
+    ...config,
+    TAMAGUI_TARGET: "web",
+  }),
   previewHead: (head) => `
     ${head}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/canvaskit-wasm/0.38.2/canvaskit.js" integrity="sha512-nxNoFynWFNZm8ox2kHj2aS/ieYfLNh8CbtDj0kIYwpjPZZj6XTWQ5i8jteTwHqBp+8GAlP/+p0i3zmMVTnrLuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -60,6 +72,19 @@ const config: StorybookConfig = {
       ],
       include: path.resolve(__dirname, "../"),
     });
+    // config.module?.rules?.push({
+    //   test: /\.(js|ts|jsx|tsx)/,
+    //   use: {
+    //     loader: "babel-loader",
+    //     options: {
+    //       presets: [
+    //         {
+    //           plugins: ["@babel/plugin-proposal-class-properties"],
+    //         },
+    //       ],
+    //     },
+    //   },
+    // });
     config.plugins?.push(
       new (class CopySkiaPlugin {
         apply(compiler: webpack.Compiler) {

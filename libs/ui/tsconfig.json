@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx",
+    "jsx": "react-native",
     "allowJs": false,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "types": ["vite/client"]
+    "strict": true
+    // "baseUrl": ".",
+    // "paths": {
+    //   "@icons/*": ["./src/lib/tokens/icons/index.ts"],
+    //   "@components": ["./src/lib/components/index.ts"]
+    // }
   },
   "files": [],
   "include": [],

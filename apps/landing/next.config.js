@@ -3,6 +3,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { composePlugins, withNx } = require("@nx/next");
 const { withExpo } = require("@expo/next-adapter");
+const path = require("node:path");
 
 /**
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
@@ -15,44 +16,47 @@ const nextConfig = {
   },
   reactStrictMode: false,
   transpilePackages: [
-    "@expo/vector-icons",
     "@nox-technologies/ui",
     "@shopify/react-native-skia",
     "expo",
     "nativewind",
     "solito",
     "react-native",
-    "react-native-web",
     "react-native-reanimated",
+    "react-native-svg",
+    "react-native-vector-icons",
     "react-native-gesture-handler",
   ],
   experimental: {
     forceSwcTransforms: true,
   },
-  // webpack: (config, {}) => {
-  //   config.module.rules.push({
-  //     test: /\.(woff|woff2|eot|ttf|otf)$/,
-  //     use: {
-  //       loader: "file-loader",
-  //       options: {
-  //         publicPath: "/_next",
-  //         name: "static/fonts/[name].[hash].[ext]",
-  //       },
-  //     },
-  //   });
-  //   config.resolve.alias = {
-  //     ...(config.resolve.alias || {}),
-  //     "react-native$": "react-native-web",
-  //     "@expo/vector-icons": "react-native-vector-icons",
-  //   };
-  //   config.resolve.extensions = [
-  //     ".web.js",
-  //     ".web.ts",
-  //     ".web.tsx",
-  //     ...config.resolve.extensions,
-  //   ];
-  //   return config;
-  // },
+  webpack: (config, {}) => {
+    config.module.rules.push({
+      test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+      type: "asset/resource",
+      use: [
+        {
+          loader: "url-loader",
+          options: {
+            name: "[name].[ext]",
+          },
+        },
+      ],
+      include: path.resolve(__dirname, "../node_modules/"),
+    });
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      "react-native$": "react-native-web",
+      "@expo/vector-icons": "react-native-vector-icons",
+    };
+    config.resolve.extensions = [
+      ".web.js",
+      ".web.ts",
+      ".web.tsx",
+      ...config.resolve.extensions,
+    ];
+    return config;
+  },
 };
 
 const plugins = [

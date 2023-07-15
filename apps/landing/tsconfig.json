@@ -27,7 +27,7 @@
     "**/*.jsx",
     "next-env.d.ts",
     "nativewind-env.d.ts"
-  ],
+, ".babelrc.js"  ],
   "exclude": [
     "node_modules",
     "jest.config.ts",
