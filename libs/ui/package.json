@@ -14,7 +14,6 @@
     "react-native": "0.71.8",
     "react-native-reanimated": "*",
     "react-native-safe-area-context": "*",
-    "react-native-skia": "*",
     "react-native-svg": "*",
     "react-native-svg-transformer": "*",
     "react-native-web": "*",
@@ -51,12 +50,18 @@
     "@testing-library/react-native": "*",
     "@storybook/addon-actions": "*",
     "expo-status-bar": "~1.4.4",
-    "@babel/core": "*"
+    "@babel/core": "*",
+    "@nx/next": "*",
+    "tsconfig-paths-webpack-plugin": "*",
+    "@babel/plugin-proposal-class-properties": "*",
+    "@babel/plugin-proposal-export-namespace-from": "*"
   },
   "devDependencies": {
     "@babel/preset-env": "*",
     "@babel/preset-react": "*",
     "@babel/preset-typescript": "*",
+    "@babel/plugin-proposal-class-properties": "*",
+    "@babel/plugin-proposal-export-namespace-from": "*",
     "@nx/devkit": "*",
     "@nx/expo": "*",
     "@nx/react": "*",
@@ -72,6 +77,7 @@
     "tailwindcss": "*",
     "vite": "*",
     "vite-tsconfig-paths": "*",
+    "tsconfig-paths-webpack-plugin": "*",
     "vite-plugin-dts": "*",
     "@babel/core": "^7.20.0"
   },

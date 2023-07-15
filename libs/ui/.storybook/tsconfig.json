@@ -24,6 +24,7 @@
     "*.ts",
     "*.js",
     "preview.tsx",
-    "index.tsx"
-, "requires.tsx"  ]
+    "index.tsx",
+    "requires.tsx"
+  ]
 }

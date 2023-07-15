@@ -1,23 +1,69 @@
-const { withExpo } = require("@expo/next-adapter");
+//@ts-check
 
-/** @type {import('next').NextConfig} */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { composePlugins, withNx } = require("@nx/next");
+const { withExpo } = require("@expo/next-adapter");
+const path = require("node:path");
+
+/**
+ * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
+ **/
 const nextConfig = {
-  // reanimated (and thus, Moti) doesn't work with strict mode currently...
-  // https://github.com/nandorojo/moti/issues/224
-  // https://github.com/necolas/react-native-web/pull/2330
-  // https://github.com/nandorojo/moti/issues/224
-  // once that gets fixed, set this back to true
+  nx: {
+    // Set this to true if you would like to use SVGR
+    // See: https://github.com/gregberge/svgr
+    svgr: true,
+  },
   reactStrictMode: false,
   transpilePackages: [
-    "nativewind",
-    "react-native",
-    "react-native-web",
-    "react-native-gesture-handler",
-    "react-native-reanimated",
-    "solito",
+    "@nox-technologies/ui",
     "@shopify/react-native-skia",
-    "canvaskit-wasm",
+    "expo",
+    "nativewind",
+    "solito",
+    "react-native",
+    "react-native-reanimated",
+    "react-native-svg",
+    "react-native-vector-icons",
+    "react-native-gesture-handler",
   ],
+  experimental: {
+    forceSwcTransforms: true,
+    swcPlugins: [],
+  },
+  webpack: (config, {}) => {
+    config.module.rules.push({
+      test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+      type: "asset/resource",
+      use: [
+        {
+          loader: "url-loader",
+          options: {
+            name: "[name].[ext]",
+          },
+        },
+      ],
+      include: path.resolve(__dirname, "../node_modules/"),
+    });
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      "react-native$": "react-native-web",
+      "@expo/vector-icons": "react-native-vector-icons",
+    };
+    config.resolve.extensions = [
+      ".web.js",
+      ".web.ts",
+      ".web.tsx",
+      ...config.resolve.extensions,
+    ];
+    return config;
+  },
 };
 
-module.exports = withExpo(nextConfig);
+const plugins = [
+  // Add more Next.js plugins to this list if needed.
+  withNx,
+  withExpo,
+];
+
+module.exports = composePlugins(...plugins)(nextConfig);
