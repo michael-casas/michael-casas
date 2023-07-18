@@ -22,6 +22,7 @@ const nextConfig = {
     "nativewind",
     "solito",
     "react-native",
+    "react-native-web",
     "react-native-reanimated",
     "react-native-svg",
     "react-native-vector-icons",
@@ -29,7 +30,10 @@ const nextConfig = {
   ],
   experimental: {
     forceSwcTransforms: true,
-    swcPlugins: [],
+    swcPlugins: [
+      // ["react-native-reanimated-swc-plugin", {}],
+      // ["@nissy-dev/swc-plugin-react-native-web", { commonjs: true }],
+    ],
   },
   webpack: (config, {}) => {
     config.module.rules.push({

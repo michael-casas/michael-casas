@@ -4,6 +4,7 @@ const { getDefaultConfig } = require("@expo/metro-config");
 const defaultConfig = getDefaultConfig(__dirname);
 
 module.exports = (async () => {
+  defaultConfig.resolver.resolverMainFields.unshift("sbmodern");
   defaultConfig.transformer.babelTransformerPath = require.resolve(
     "react-native-svg-transformer"
   );
