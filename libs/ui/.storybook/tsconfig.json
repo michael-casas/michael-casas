@@ -22,9 +22,8 @@
     "../src/**/*.stories.tsx",
     "../src/**/*.stories.mdx",
     "*.ts",
+    "*.tsx",
     "*.js",
-    "preview.tsx",
-    "index.tsx",
-    "requires.tsx"
-, "../src/lib/atoms/icons/menu/menu.stories.tsx"  ]
+    "*.jsx"
+  ]
 }

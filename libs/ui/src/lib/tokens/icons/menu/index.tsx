@@ -8,6 +8,8 @@ import {
   interpolate,
   useAnimatedProps,
   useAnimatedStyle,
+  withSequence,
+  Extrapolate,
 } from "react-native-reanimated";
 import { Platform } from "react-native";
 
@@ -25,6 +27,7 @@ export default function Menu({
   onPress,
   ...props
 }: MenuProps) {
+  // TODO begin animation sequence for animated Hamburger
   const DURATION = 750;
   const toggled = useSharedValue(false);
   const progress = useDerivedValue(() => {
