@@ -6,12 +6,12 @@
   "dependencies": {
     "@expo/vector-icons": "*",
     "@expo/next-adapter": "*",
-    "expo": "~48.0.18",
+    "expo": "*",
     "expo-dev-client": "*",
     "expo-font": "*",
-    "expo-splash-screen": "~0.18.2",
+    "expo-splash-screen": "*",
     "nativewind": "*",
-    "react-native": "0.71.8",
+    "react-native": "*",
     "react-native-reanimated": "*",
     "react-native-safe-area-context": "*",
     "react-native-svg": "*",
@@ -44,7 +44,7 @@
     "@rollup/plugin-commonjs": "*",
     "node-polyfill-webpack-plugin": "*",
     "webpack": "*",
-    "react": "18.2.0",
+    "react": "*",
     "@shopify/react-native-skia": "*",
     "canvaskit-wasm": "*",
     "@testing-library/react-native": "*",
@@ -54,7 +54,9 @@
     "@nx/next": "*",
     "tsconfig-paths-webpack-plugin": "*",
     "@babel/plugin-proposal-class-properties": "*",
-    "@babel/plugin-proposal-export-namespace-from": "*"
+    "@babel/plugin-proposal-export-namespace-from": "*",
+    "next": "*",
+    "moti": "*"
   },
   "devDependencies": {
     "@babel/preset-env": "*",
@@ -79,7 +81,7 @@
     "vite-tsconfig-paths": "*",
     "tsconfig-paths-webpack-plugin": "*",
     "vite-plugin-dts": "*",
-    "@babel/core": "^7.20.0"
+    "@babel/core": "*"
   },
   "exports": {
     ".": {

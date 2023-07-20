@@ -16,6 +16,9 @@ const config: StorybookConfig = {
     name: "@storybook/nextjs",
     options: {
       nextConfigPath: "libs/ui/next.config.js",
+      builder: {
+        useSWC: false,
+      },
     },
   },
   addons: [
@@ -25,19 +28,26 @@ const config: StorybookConfig = {
       name: "@storybook/addon-react-native-web",
       options: {
         modulesToTranspile: [
+          "@nox-technologies/ui",
+          "@shopify/react-native-skia",
           "expo",
+          "moti",
+          "nativewind",
           "react-native",
+          "react-native-web",
+          "react-native-reanimated",
+          "react-native-svg",
           "react-native-vector-icons",
+          "react-native-gesture-handler",
           "solito",
         ],
-        modulesToAlias: [],
+        modulesToAlias: {
+          "react-native$": "react-native-web",
+        },
+        babelPugins: ["nativewind/babel", "react-native-reanimated/plugin"],
       },
     },
   ],
-  // docs: {
-  //   autodocs: true,
-  //   defaultName: "Documentation",
-  // },
   env: (config, options) => ({
     ...config,
     TAMAGUI_TARGET: "web",
@@ -58,7 +68,6 @@ const config: StorybookConfig = {
       </style>
   `,
   webpackFinal(config, {}) {
-    // Possible react-native-skia fix
     config.module?.rules?.push({
       test: /\.(png|woff|woff2|eot|ttf|svg)$/,
       type: "asset/resource",
@@ -72,19 +81,6 @@ const config: StorybookConfig = {
       ],
       include: path.resolve(__dirname, "../"),
     });
-    // config.module?.rules?.push({
-    //   test: /\.(js|ts|jsx|tsx)/,
-    //   use: {
-    //     loader: "babel-loader",
-    //     options: {
-    //       presets: [
-    //         {
-    //           plugins: ["@babel/plugin-proposal-class-properties"],
-    //         },
-    //       ],
-    //     },
-    //   },
-    // });
     config.plugins?.push(
       new (class CopySkiaPlugin {
         apply(compiler: webpack.Compiler) {

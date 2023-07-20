@@ -5,7 +5,7 @@ import Menu from "./index";
 // TODO: Design The Colors Component Demo here...
 const meta: Meta<typeof Menu> = {
   component: Menu,
-  title: "Design Tokens/Tier 1: Definitions/Icons/Menu",
+  title: "Atoms/Icons/MotiMenu",
   args: {
     fill: "#000",
     stroke: "#000",

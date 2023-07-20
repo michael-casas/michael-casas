@@ -19,22 +19,23 @@ const nextConfig = {
     "@nox-technologies/ui",
     "@shopify/react-native-skia",
     "expo",
+    "moti",
     "nativewind",
-    "solito",
     "react-native",
     "react-native-web",
     "react-native-reanimated",
     "react-native-svg",
     "react-native-vector-icons",
     "react-native-gesture-handler",
+    "solito",
   ],
-  experimental: {
-    forceSwcTransforms: true,
-    swcPlugins: [
-      // ["react-native-reanimated-swc-plugin", {}],
-      // ["@nissy-dev/swc-plugin-react-native-web", { commonjs: true }],
-    ],
-  },
+  // experimental: {
+  //   forceSwcTransforms: true,
+  //   swcPlugins: [
+  //     // ["react-native-reanimated-swc-plugin", {}],
+  //     // ["@nissy-dev/swc-plugin-react-native-web", { commonjs: true }],
+  //   ],
+  // },
   webpack: (config, {}) => {
     config.module.rules.push({
       test: /\.(png|woff|woff2|eot|ttf|svg)$/,

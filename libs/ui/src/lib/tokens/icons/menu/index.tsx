@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { TouchableHighlight, TouchableWithoutFeedback } from "react-native";
-import { Svg, Path as NativePath, Circle } from "react-native-svg";
-import { Path, Rect, Touchable } from "../../../components";
+import { Svg } from "react-native-svg";
+import { Rect, Touchable } from "../../../components";
 import React from "react";
 import {
-  runOnJS,
-  runOnUI,
-  useAnimatedStyle,
   useSharedValue,
   withTiming,
+  useDerivedValue,
+  interpolate,
+  useAnimatedProps,
+  useAnimatedStyle,
 } from "react-native-reanimated";
+import { Platform } from "react-native";
 
 type MenuProps = {
   fill?: string;
@@ -25,44 +25,38 @@ export default function Menu({
   onPress,
   ...props
 }: MenuProps) {
-  const [toggled, setToggled] = useState(false);
-  const topStyle = useAnimatedStyle(() => {
+  const DURATION = 750;
+  const toggled = useSharedValue(false);
+  const progress = useDerivedValue(() => {
+    return toggled.value
+      ? withTiming(1, { duration: DURATION })
+      : withTiming(0, { duration: DURATION });
+  }, [toggled]);
+
+  const topTranslation = useAnimatedProps(() => {
     return {
       transform: [
         {
-          translateY: toggled
-            ? withTiming(20, {
-                duration: 750,
-              })
-            : withTiming(0, {
-                duration: 750,
-              }),
+          translateY: interpolate(progress.value, [0, 1], [0, 20]),
         },
       ],
     };
-  });
-  const bottomStyle = useAnimatedStyle(() => {
+  }, [progress]);
+  const botTranslation = useAnimatedProps(() => {
     return {
       transform: [
         {
-          translateY: toggled
-            ? withTiming(-20, {
-                duration: 750,
-              })
-            : withTiming(0, {
-                duration: 750,
-              }),
+          translateY: interpolate(progress.value, [0, 1], [0, -20]),
         },
       ],
     };
-  });
+  }, [progress]);
 
   return (
     <Touchable
       onPress={() => {
         if (onPress) onPress();
-        setToggled(!toggled);
-        console.log("Menu pressed! \nState: ", toggled);
+        toggled.value = !toggled.value;
       }}
       className="rounded-md hover:bg-slate-100"
     >
@@ -74,7 +68,6 @@ export default function Menu({
         {...props}
       >
         <Rect
-          style={[topStyle]}
           fill={fill}
           stroke={stroke}
           width={80}
@@ -82,6 +75,8 @@ export default function Menu({
           rx={5}
           x={10}
           y={25}
+          animatedProps={topTranslation}
+          // style={[topStyle]}
         />
         <Rect
           fill={fill}
@@ -93,7 +88,6 @@ export default function Menu({
           y={45}
         />
         <Rect
-          style={[bottomStyle]}
           fill={fill}
           stroke={stroke}
           width={80}
@@ -101,6 +95,8 @@ export default function Menu({
           rx={5}
           x={10}
           y={65}
+          animatedProps={botTranslation}
+          // style={[botStyle]}
         />
       </Svg>
     </Touchable>

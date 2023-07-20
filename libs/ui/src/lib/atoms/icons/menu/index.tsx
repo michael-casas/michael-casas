@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import {
   Animated,
   GestureResponderEvent,
@@ -11,16 +11,20 @@ import {
   Circle,
   Rect as NativeRect,
 } from "react-native-svg";
-import { Path, Rect, Touchable } from "../../../components";
+// import { Path, Rect, Touchable } from "../../../components";
 import React from "react";
+import { useAnimationState } from "moti";
 import {
-  interpolate,
-  runOnUI,
-  useAnimatedStyle,
-  useDerivedValue,
-  useSharedValue,
-  withTiming,
-} from "react-native-reanimated";
+  MotiPressable,
+  useMotiPressable,
+  useMotiPressableTransition,
+} from "moti/interactions";
+import { motifySvg } from "moti/svg";
+import { styled } from "nativewind";
+import { useSharedValue } from "react-native-reanimated";
+
+const Rect = motifySvg(NativeRect)();
+// const Touchable = styled(MotiPressable);
 
 type MenuProps = {
   fill?: string;
@@ -36,41 +40,43 @@ export default function Menu({
   onPress,
   ...props
 }: MenuProps) {
-  const toggled = useSharedValue(false);
-  const progress = useDerivedValue(() => {
-    return toggled.value
-      ? withTiming(1, { duration: 500 })
-      : withTiming(0, { duration: 500 });
-  }, [toggled]);
-  const topStyle = useAnimatedStyle(() => {
+  const topTransition = useMotiPressableTransition(({ pressed }) => {
+    "worklet";
     return {
-      transform: [
-        {
-          translateY: interpolate(progress.value, [0, 1], [0, 20]),
-        },
-      ],
+      type: "timing",
+      duration: 500,
     };
-  }, [toggled]);
-  const bottomStyle = useAnimatedStyle(() => {
+  });
+  const topState = useMotiPressable(({ pressed }) => {
+    "worklet";
+
     return {
-      transform: [
-        {
-          translateY: interpolate(progress.value, [0, 1], [0, -20]),
-        },
-      ],
+      translateY: pressed ? 0 : 20,
     };
-  }, [toggled]);
+  });
+  const bottomTransition = useMotiPressableTransition("menu", ({ pressed }) => {
+    "worklet";
+    return {
+      type: "timing",
+      duration: 500,
+    };
+  });
+  const bottomState = useMotiPressable("menu", ({ pressed }) => {
+    "worklet";
+
+    return {
+      translateY: pressed ? 0 : -20,
+    };
+  });
 
   return (
-    <Touchable
-      onPress={(e: GestureResponderEvent) => {
+    <MotiPressable
+      id="menu"
+      onPress={() => {
         // TODO Touchable Not Interpolating on web, issue with reanimated on web?
         if (onPress) onPress();
-        toggled.value = !toggled.value;
-        console.log("Menu pressed! \nState: ", toggled.value);
-        console.log("\nEvent: ", e);
+        console.log("Pressed! \n");
       }}
-      className="rounded-md hover:bg-slate-100"
     >
       <Svg
         width={size}
@@ -80,7 +86,7 @@ export default function Menu({
         {...props}
       >
         <Rect
-          style={[topStyle]}
+          transition={topTransition}
           fill={fill}
           stroke={stroke}
           width={80}
@@ -99,7 +105,8 @@ export default function Menu({
           y={45}
         />
         <Rect
-          style={[bottomStyle]}
+          state={bottomState}
+          transition={bottomTransition}
           fill={fill}
           stroke={stroke}
           width={80}
@@ -109,6 +116,6 @@ export default function Menu({
           y={65}
         />
       </Svg>
-    </Touchable>
+    </MotiPressable>
   );
 }
