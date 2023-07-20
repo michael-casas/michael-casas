@@ -26,5 +26,5 @@
     "preview.tsx",
     "index.tsx",
     "requires.tsx"
-, "../src/lib/atoms/icons/menu/menu.tmp.tsx"  ]
+, "../src/lib/atoms/icons/menu/menu.stories.tsx"  ]
 }

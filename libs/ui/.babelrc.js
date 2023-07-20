@@ -1,11 +1,19 @@
 module.exports = function (api) {
-  api.cache(true);
+  const isWeb = api.caller(
+    (caller) =>
+      caller &&
+      (caller.name === "babel-loader" ||
+        caller.name === "next-babel-turbo-loader")
+  );
+
   return {
-    presets: ["babel-preset-expo"],
+    presets: [isWeb && require("next/babel"), "babel-preset-expo"].filter(
+      Boolean
+    ),
     plugins: [
       "nativewind/babel",
-      "react-native-reanimated/plugin",
       "@babel/plugin-proposal-export-namespace-from",
+      "react-native-reanimated/plugin",
     ],
   };
 };
