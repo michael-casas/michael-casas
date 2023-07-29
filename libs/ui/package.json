@@ -49,7 +49,7 @@
     "canvaskit-wasm": "*",
     "@testing-library/react-native": "*",
     "@storybook/addon-actions": "*",
-    "expo-status-bar": "~1.4.4",
+    "expo-status-bar": "*",
     "@babel/core": "*",
     "@nx/next": "*",
     "tsconfig-paths-webpack-plugin": "*",

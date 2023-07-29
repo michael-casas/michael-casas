@@ -16,7 +16,6 @@ const nextConfig = {
   },
   reactStrictMode: false,
   transpilePackages: [
-    "@nox-technologies/ui",
     "@shopify/react-native-skia",
     "expo",
     "moti",

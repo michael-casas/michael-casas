@@ -50,7 +50,7 @@
         "pattern": "**/*.stories.@(js|jsx|ts|tsx|mdx)"
       }
     },
-    "start": {
+    "storybook": {
       "executor": "@nx/storybook:storybook",
       "options": {
         "port": 1313,
@@ -62,7 +62,7 @@
         }
       }
     },
-    "start:expo": {
+    "storybook-native": {
       "executor": "@nx/expo:start",
       "dependsOn": ["load-stories"],
       "options": {
