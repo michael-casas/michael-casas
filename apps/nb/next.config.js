@@ -2,41 +2,35 @@
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { composePlugins, withNx } = require("@nx/next");
-const { withExpo } = require("@expo/next-adapter");
+const { withNativebase } = require("@native-base/next-adapter");
 const path = require("node:path");
 
 /**
- * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
+ * @type {import('next').NextConfig} *
  **/
 const nextConfig = {
-  nx: {
-    // Set this to true if you would like to use SVGR
-    // See: https://github.com/gregberge/svgr
-    svgr: true,
-  },
+  // nx: {
+  //   // Set this to true if you would like to use SVGR
+  //   // See: https://github.com/gregberge/svgr
+  //   svgr: false,
+  // },
   reactStrictMode: false,
   transpilePackages: [
     "@shopify/react-native-skia",
-    "@expo/next-adapter",
     "expo",
-    "moti",
     "nativewind",
     "native-base",
+    "@expo/next-adapter",
+    "solito",
     "react-native",
-    "react-native-web",
     "react-native-reanimated",
     "react-native-svg",
     "react-native-vector-icons",
     "react-native-gesture-handler",
-    "solito",
   ],
-  // experimental: {
-  //   forceSwcTransforms: true,
-  //   swcPlugins: [
-  //     // ["react-native-reanimated-swc-plugin", {}],
-  //     // ["@nissy-dev/swc-plugin-react-native-web", { commonjs: true }],
-  //   ],
-  // },
+  experimental: {
+    forceSwcTransforms: true,
+  },
   webpack: (config, {}) => {
     config.module.rules.push({
       test: /\.(png|woff|woff2|eot|ttf|svg)$/,
@@ -66,10 +60,10 @@ const nextConfig = {
   },
 };
 
-const plugins = [
-  // Add more Next.js plugins to this list if needed.
-  withNx,
-  withExpo,
-];
+// const plugins = [
+//   // Add more Next.js plugins to this list if needed.
+//   withNx,
+//   withNativebase,
+// ];
 
-module.exports = composePlugins(...plugins)(nextConfig);
+module.exports = withNativebase(nextConfig);
