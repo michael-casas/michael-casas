@@ -8,7 +8,7 @@ module.exports = function (api) {
         {
           root: ["."],
           alias: {
-            "@nox-technologies/ui": "../../libs/ui/src/index.ts",
+            "@michael-casas/ui": "../../libs/ui/src/index.ts",
           },
         },
       ],

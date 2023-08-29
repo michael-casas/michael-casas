@@ -1,5 +1,5 @@
 {
-  "name": "@nox-technologies/wizard",
+  "name": "@michael-casas/wizard",
   "version": "0.0.1",
   "type": "commonjs",
   "executors": "./executors.json"

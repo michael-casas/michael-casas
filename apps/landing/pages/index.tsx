@@ -1,4 +1,4 @@
-import { Home } from "@nox-technologies/ui";
+import { Home } from "@michael-casas/ui";
 
 export default Home;
 

@@ -15,9 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nox-technologies/shared": ["libs/shared/src/index.ts"],
-      "@nox-technologies/ui": ["libs/ui/src/index.ts"],
-      "@nox-technologies/wizard": ["libs/wizard/src/index.ts"]
+      "@michael-casas/shared": ["libs/shared/src/index.ts"],
+      "@michael-casas/ui": ["libs/ui/src/index.ts"],
+      "@michael-casas/wizard": ["libs/wizard/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

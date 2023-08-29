@@ -17,7 +17,7 @@
     "assetBundlePatterns": ["**/*", "assets/**"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.nox-technologies.ui"
+      "bundleIdentifier": "com.michael-casas.ui"
     },
     "android": {
       "adaptiveIcon": {

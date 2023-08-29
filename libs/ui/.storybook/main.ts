@@ -28,7 +28,7 @@ const config: StorybookConfig = {
       name: "@storybook/addon-react-native-web",
       options: {
         modulesToTranspile: [
-          "@nox-technologies/ui",
+          "@michael-casas/ui",
           "@shopify/react-native-skia",
           "expo",
           "moti",
