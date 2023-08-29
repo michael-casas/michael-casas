@@ -14,7 +14,7 @@ describe("wizard e2e", () => {
   // on a unique project in the workspace, such that they
   // are not dependant on one another.
   beforeAll(() => {
-    ensureNxProject("@nox-technologies/wizard", "dist/libs/wizard");
+    ensureNxProject("@michael-casas/wizard", "dist/libs/wizard");
   });
 
   afterAll(async () => {
@@ -29,7 +29,7 @@ describe("wizard e2e", () => {
     const name = "proj";
     const generator = "PLACEHOLDER";
     await runNxCommandAsync(
-      `generate @nox-technologies/wizard:${generator} --name ${name}`
+      `generate @michael-casas/wizard:${generator} --name ${name}`
     );
     expect(() => runNxCommand("build ${proj}")).not.toThrow();
     expect(() => checkFilesExist(`dist/${name}/index.js`)).not.toThrow();

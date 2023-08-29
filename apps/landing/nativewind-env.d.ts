@@ -1,2 +1,2 @@
-/// <reference types="@nox-technologies/ui/rnw-overrides" />
+/// <reference types="@michael-casas/ui/rnw-overrides" />
 /// <reference types="nativewind/types" />
