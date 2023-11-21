@@ -12,7 +12,18 @@ module.exports = {
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
-    ...theme,
+    fontFamily: {
+      primary: ["WorkSans"],
+    },
+    extend: {
+      spacing: {
+        "8xl": "96rem",
+        "9xl": "128rem",
+      },
+      borderRadius: {
+        "4xl": "2rem",
+      },
+    },
   },
   plugins: [require("nativewind/tailwind/css")],
   important: "html",
