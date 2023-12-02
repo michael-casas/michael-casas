@@ -58,10 +58,8 @@ npm-debug.*
 web-build/
 cache/
 
-
-apps/tmp-e2e/artifacts
-
 # React Native
+/libs/ui/.storybook/story-loader.ts
 
 # OSX
 #

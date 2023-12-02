@@ -21,17 +21,5 @@ export const workSans = localFont({
       style: "italic",
     },
   ],
-  variable: "--font-primary",
+  variable: "--font-work-sans",
 });
-
-const fonts = `
-@font-face {
-    font-family: 'WorkSans';
-    src: url('/fonts/WorkSans.ttf') format('truetype'),
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-`;
-
-export default fonts;

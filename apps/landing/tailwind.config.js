@@ -16,6 +16,9 @@ module.exports = {
       primary: ["WorkSans"],
     },
     extend: {
+      fontFamily: {
+        primary: ["var(--font-work-sans)"],
+      },
       spacing: {
         "8xl": "96rem",
         "9xl": "128rem",

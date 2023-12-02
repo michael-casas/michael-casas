@@ -13,7 +13,7 @@ function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>NOX Technologies</title>
       </Head>
-      <main className={`${workSans.variable}`}>
+      <main className={`${workSans.variable} font-primary`}>
         <Component {...pageProps} />
       </main>
     </>
