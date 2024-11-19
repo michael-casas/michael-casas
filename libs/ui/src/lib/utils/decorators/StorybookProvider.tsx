@@ -1,14 +1,9 @@
-import { NativeBaseProvider, NativeBaseProviderProps } from "native-base";
 import { StoryFn } from "@storybook/react";
 
-export const StorybookProvder = (
-  Story: StoryFn,
-  args: unknown,
-  props: NativeBaseProviderProps
-) => {
+export const StorybookProvder = (Story: StoryFn, args: unknown) => {
   return (
-    <NativeBaseProvider>
+    <>
       <Story />
-    </NativeBaseProvider>
+    </>
   );
 };
