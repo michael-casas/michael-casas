@@ -1,4 +1,4 @@
-import { Text, View } from "../..";
+import { H1, Text, View } from "../..";
 
 interface ColorStoryProps {
   theme: "light" | "dark";
@@ -7,7 +7,7 @@ interface ColorStoryProps {
 export const ColorStory = (props: ColorStoryProps) => {
   return (
     <View className="flex-col">
-      <Text className="p-5 m-5 text-6xl">Colors</Text>
+      <H1 className="p-5">Colors</H1>
       <View className="flex-row">
         <View className="flex-col">
           <Text className="m-5 h-20 w-20 bg-purple-500"></Text>

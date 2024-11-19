@@ -1,7 +1,7 @@
 import { ComponentProps, forwardRef } from "react";
 import { Linking, Text as NativeText, Platform } from "react-native";
 import { StyledProps, styled } from "nativewind";
-import { Text } from "../../../../lib/components";
+import { Text } from "../../../components";
 
 export const H1 = styled(NativeText, "font-primary text-5xl");
 export const H2 = styled(NativeText, "font-primary text-4xl");
