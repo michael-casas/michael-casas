@@ -142,3 +142,7 @@ apps/ui-native-e2e/artifacts
 .flaskenv*
 !.env.project
 !.env.vault
+
+# storybook
+**/*/story-loader.ts
+libs/ui/.storybook/story-loader.ts
