@@ -57,7 +57,9 @@
     "@babel/plugin-proposal-export-namespace-from": "*",
     "next": "*",
     "native-base": "*",
-    "moti": "*"
+    "moti": "*",
+    "react-native-actions-sheet": "*",
+    "react-native-gesture-handler": "*"
   },
   "devDependencies": {
     "@babel/preset-env": "*",
