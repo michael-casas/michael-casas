@@ -14,8 +14,5 @@ export const TypographyStory = () => (
       <H5>H5</H5>
       <H6>H6</H6>
     </View>
-    <Box>
-      <NBText>NB H1</NBText>
-    </Box>
   </View>
 );

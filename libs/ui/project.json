@@ -50,10 +50,10 @@
         "pattern": "**/*.stories.@(js|jsx|ts|tsx|mdx)"
       }
     },
-    "storybook": {
+    "storybook-web": {
       "executor": "@nx/storybook:storybook",
       "options": {
-        "port": 1313,
+        "port": 4200,
         "configDir": "libs/ui/.storybook"
       },
       "configurations": {
@@ -62,7 +62,7 @@
         }
       }
     },
-    "storybook-native": {
+    "storybook-mobile": {
       "executor": "@nx/expo:start",
       "dependsOn": ["load-stories"],
       "options": {
